@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .menu {
+            background: #ddd;
+            padding: 10px;
+            display: flex;
+            gap: 15px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function validateInput() {
+            let inputField = document.getElementById("sciNumber");
+            let value = inputField.value.trim();
+            let regex = /^-?\d+(\.\d+)?(e[-+]?\d+)?$/i;
+            let message = document.getElementById("message");
+            
+            if (regex.test(value)) {
+                message.style.color = "green";
+                message.textContent = "Yes, it is a number";
+            } else {
+                message.style.color = "red";
+                message.textContent = "No, it is not a number";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="menu">
+        <span>File</span>
+        <span>Edit</span>
+        <span>Run</span>
+        <span>About Us</span>
+    </div>
+    <div class="container">
+        <h2>Assignment Automata</h2>
+        <h3>Scientific Number Checker</h3>
+        <label for="sciNumber">Enter a number:</label>
+        <input type="text" id="sciNumber" oninput="validateInput()" placeholder="e.g. 1.23e+10">
+        <p id="message"></p>
+    </div>
+</body>
+</html>
